@@ -36,3 +36,8 @@ Tool parts that I chose: Part 3 Robot Framework and Part 4 Cypress
 
 - Step 3.8, run 1: 1 test, 1 passed, 0 failed. Elapsed time: 00:00:10.852. Pizza name: Lab Pizza 20261124-192320.
 - Step 3.8, run 2: 1 test, 1 passed, 0 failed. Elapsed time: 00:00:10.372. Pizza name: 20261124-192359.
+
+# Part 4: Cypress 
+- node --version: v22.14.0, npm --version: 10.9.2 and npx cypress version: 16.2.1
+
+- Step 4.3, failure message for the wrong title: `Timed out retrying after 10000ms`. Expected `Web Form`, but the actual title was `Web form`.
