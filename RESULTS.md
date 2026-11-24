@@ -45,3 +45,6 @@ Tool parts that I chose: Part 3 Robot Framework and Part 4 Cypress
 - Step 4.6, tool and calories in the answer of `POST /api/pizza`: `Scissors`, 550 calories per slice.
 
 - Step 4.7, the line of the admin list that shows my pizza: `Lab Pizza 20261124-200957 (tool=Scissors, ingredients_number=5)`.
+
+- Step 4.8, run 1: 2 passed, 0 failed. Duration: 13 seconds. Pizza name: `Lab Pizza 20261124-201455`.
+- Step 4.8, run 1: 2 passed, 0 failed. Duration: 13 seconds. Pizza name: `Lab Pizza 20261124-201908`.
