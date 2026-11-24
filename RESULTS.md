@@ -33,3 +33,6 @@ Tool parts that I chose: Part 3 Robot Framework and Part 4 Cypress
 
 - Step 3.2, failure message for the wrong title: Title should have been 'Web Form' but was 'Web form'.
 - Step 3.2, after restoring the correct title: 1 test, 1 passed, 0 failed
+
+- Step 3.8, run 1: 1 test, 1 passed, 0 failed. Elapsed time: 00:00:10.852. Pizza name: Lab Pizza 20261124-192320.
+- Step 3.8, run 2: 1 test, 1 passed, 0 failed. Elapsed time: 00:00:10.372. Pizza name: 20261124-192359.
