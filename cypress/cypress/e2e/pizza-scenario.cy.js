@@ -42,16 +42,27 @@ describe('QP-01 A custom pizza reaches the admin list', () => {
     cy.get('input#pizza-name').type(pizzaName)
     cy.get('input#pizza-name').should('have.value', pizzaName)
 
-    // Step 4: ask for a pizza and verify the recommendation
+        // Step 4: ask for a pizza and verify the recommendation
+    cy.intercept('POST', '/api/pizza').as('pizza')
     cy.get('button[name="pizza-please"]').click()
-    cy.get('#recommendations').should('contain', `Name: ${pizzaName}`)
-    cy.contains('#recommendations p', 'Tool:').should('not.contain', 'Knife')
-    cy.contains('#recommendations p', 'Calories per slice:')
-      .invoke('text')
-      .then((text) => {
-        const calories = Number(text.replace('Calories per slice:', '').trim())
-        expect(calories).to.be.at.most(600)
-      })
+
+    cy.wait('@pizza').then(({ request, response }) => {
+      expect(request.body.maxCaloriesPerSlice).to.equal(600)
+      expect(response.statusCode).to.equal(200)
+
+      const { pizza, calories } = response.body
+      expect(pizza.tool).not.to.equal('Knife')
+      expect(calories).to.be.at.most(600)
+
+      cy.get('#recommendations').should('contain', `Name: ${pizzaName}`)
+      cy.contains('#recommendations p', 'Tool:')
+        .should('have.text', `Tool: ${pizza.tool}`)
+      cy.contains('#recommendations p', 'Calories per slice:')
+        .should('have.text', `Calories per slice: ${calories}`)
+
+      cy.log(`POST /api/pizza: tool=${pizza.tool}, calories=${calories}`)
+      cy.wrap(pizza.tool).as('tool')
+    })
 
     // Step 5: try to rate the pizza without logging in
     cy.get('button[name="rate-5"]').click()
