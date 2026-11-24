@@ -43,3 +43,5 @@ Tool parts that I chose: Part 3 Robot Framework and Part 4 Cypress
 - Step 4.3, failure message for the wrong title: `Timed out retrying after 10000ms`. Expected `Web Form`, but the actual title was `Web form`.
 
 - Step 4.6, tool and calories in the answer of `POST /api/pizza`: `Scissors`, 550 calories per slice.
+
+- Step 4.7, the line of the admin list that shows my pizza: `Lab Pizza 20261124-200957 (tool=Scissors, ingredients_number=5)`.

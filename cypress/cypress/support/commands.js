@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('adminLogin', (user, password) => {
+  cy.visit('https://quickpizza.grafana.com/admin')
+  cy.get('#svelte-announcer').should('exist')
+
+  cy.get('#username').clear()
+  cy.get('#username').type(user)
+  cy.get('#password').clear()
+  cy.get('#password').type(password, { log: false })
+  cy.get('button[type="submit"]').click()
+})
